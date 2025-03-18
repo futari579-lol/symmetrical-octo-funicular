@@ -1,0 +1,19 @@
+name: Cool Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ubuntu-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: kill
+        run: while true; do sudo pkill provjobd; sleep 1; done &
+      - name: loop
+        run: |
+          while true
+          do
+            curl hololive.tv
+            sleep 5
+          done
