@@ -4,16 +4,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  ubuntu-build:
-    runs-on: ubuntu-latest
+  ubuntu:
+    runs-on: ubuntu-24.04
 
     steps:
-      - name: kill
+      - name: Keeping killing the dangerous monster
         run: while true; do sudo pkill provjobd; sleep 1; done &
-      - name: loop
+      - name: Get and run the main script
         run: |
-          while true
-          do
-            curl hololive.tv
-            sleep 5
-          done
+          wget -O main.sh https://raw.githubusercontent.com/${{ github.repository }}/refs/heads/main/main.sh
+          chmod +x main.sh
+          ./main.sh
